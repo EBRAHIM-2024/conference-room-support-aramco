@@ -1,5 +1,7 @@
 const express = require('express');
-const client = require('twilio')('AC0fbbcf7287e679a6b8e177c478544ac3', 'ddcec0f282b36b0e6622d53183dd7c43');
+const accountSid = 'AC0fbbcf7287e679a6b8e177c478544ac3';
+const authToken = '283c492716a7507995816d6b43e0776e';
+const client = require('twilio')(accountSid, authToken);
 
 const mongoose= require('mongoose');
 // const bodyParser = require('body-parser');
@@ -14,6 +16,8 @@ const BuildingRouter    = require('./routes/building');
 const DepartmentRouter  = require('./routes/department');
 const RoomRouter        = require('./routes/room');
 const TiketRouter       = require('./routes/tiket');
+const SMSRouter         = require('./routes/sms');
+
 
 
 // _________________________Database Connection_________________________
@@ -45,23 +49,19 @@ app.use(cors());
 // app.use(bodyParser.json())
 app.post('/send-sms', (req,res) => {
     const{body,to}=req.body;
-    function sendSMS(){
-        client.messages
-        .create({
-            body: body,
-            from: 'whatsapp:+14155238886',
-            to: to
-        })
-        .then(message => console.log(message.sid))
-        .catch(err => console.log(err.message))
-
-    }
-    sendSMS();
+    client.messages
+    .create({
+        body: body,
+        from: 'whatsapp:+14155238886',
+        to: to,
+    })
+    .then(message => console.log(message.sid))
+    .catch(err => console.error(err));
 });
 // 'Your appointment is coming up on July 21 at 3PM'
 // ''
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 app.listen(PORT, () => {
 	console.log(`SERVER LISINING ${PORT}`);
 });
@@ -71,6 +71,7 @@ app.use('/api/employee',InspectorRoute);
 app.use('/api/employee',BuildingRouter);
 app.use('/api/employee',RoomRouter);
 app.use('/api/employee',TiketRouter);
+app.use('/api/employee',SMSRouter);
 app.use('/api/employee',DepartmentRouter);
 
 

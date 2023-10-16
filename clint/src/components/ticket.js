@@ -110,7 +110,9 @@ function TicketComponent() {
 
       fetch('http://localhost:5000/api/employee/sendSMS',{
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+         headers: {
+        'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           body:`please cheack  Room ${room} it has  a problem`,
           to:`whatsapp:+966${inspectorPhone,employeePhone}`

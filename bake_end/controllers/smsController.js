@@ -7,14 +7,24 @@ const dotenv= require('dotenv');
 
 const sendSMS=(req,res) => {
     const{body,to}=req.body;
-    client.messages
+
+    try {
+        client.messages
     .create({
         body: body,
         from: 'whatsapp:+14155238886',
         to: to,
     })
-    .then(message => console.log(message.sid))
-    .catch(err => console.error(err));
+    .then(message=>console.log(" message sent successfully"))
+
+    return res.status(200).json({success: true, msg: "message sent successfully"})
+
+    }catch(error) {
+          return res.status(400).json({success: false, msg:error.message})
+
+    }
+
+
 };
 
 module.exports={sendSMS}

@@ -16,8 +16,12 @@ const sendSMS=(req,res) => {
         to: to,
     })
     //.then(message=>console.log(" message sent successfully",message))
-    .then(message=>console.log(message))
-    return res.status(200).json({success: true, msg: message})
+    .then(message=>
+            {
+                return res.status(200).json({success: true, msg: message})
+            }
+    )
+    //return res.status(200).json({success: true, msg: message})
 
     }catch(error) {
           return res.status(400).json({success: false, msg:error.message})

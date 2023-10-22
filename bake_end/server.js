@@ -1,12 +1,18 @@
+require('dotenv').config();
+const dotenv= require('dotenv');
+const axios = require('axios');
 const express = require('express');
-
-
+const bodyParser = require('body-parser')
 const mongoose= require('mongoose');
 // const bodyParser = require('body-parser');
 const  cors = require('cors');
 const app = express();
-require('dotenv').config();
-const dotenv= require('dotenv');
+app.use(bodyParser.urlencoded({ extended:false }));
+const TeleToken=process.env.TeleToken;
+const accountSid = process.env.AccountSid;
+const authToken = process.env.AuthToken;
+const client = require('twilio')(accountSid, authToken);
+
 
 const EmployeeRoute     = require('./routes/employee');
 const InspectorRoute    = require('./routes/inspector');
@@ -32,13 +38,9 @@ mongoose.connection.on('err',() =>{
 })
 
 // _____________________________________________________________________
-// require('./models/employee')
-// require('./models/department')
-// require('./models/conference_room')
-// require('./models/building')
+
 app.use(express.json());
-// app.use(require('./routes/employee'))
-// app.use(require('./routes/building_router'))
+
 
 app.use(cors());
 
@@ -49,10 +51,10 @@ app.post('/send-sms', (req,res) => {
     const{body,to}=req.body;
     client.messages
     .create({
-        body: body,
+        body: "hello world",
         from: 'whatsapp:+14155238886',
         to: to,
-    })
+        })
     .then(message => console.log(message.sid))
     .catch(err => console.error(err));
 });

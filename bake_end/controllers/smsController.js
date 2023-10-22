@@ -7,9 +7,7 @@ const dotenv= require('dotenv');
 
 const sendSMS=(req,res) => {
     const{message,to}=req.body;
-     function msgSuccess(arg){
-        return res.status(200).json({success: true, msg: arg})
-    }
+
     try {
         client.messages
     .create({
@@ -18,9 +16,8 @@ const sendSMS=(req,res) => {
         to: to,
     })
     //.then(message=>console.log(" message sent successfully",message))
-
-    .then(msgSuccess,msgSuccess);
-    //return res.status(200).json({success: true, msg: message})
+    .then(message=>console.log(message))
+    return res.status(200).json({success: true, msg: accountSid +  "-" + authToken });
 
     }catch(error) {
           return res.status(400).json({success: false, msg:error.message})

@@ -18,7 +18,7 @@ const sendSMS=(req,res) => {
     //.then(message=>console.log(" message sent successfully",message))
     .then(message=>
             {
-                return res.status(200).json({success: true, msg: message})
+                return res.status(200).json({success: true, msg: message.sid})
             }
     )
     //return res.status(200).json({success: true, msg: message})

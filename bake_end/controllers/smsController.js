@@ -7,7 +7,9 @@ const dotenv= require('dotenv');
 
 const sendSMS=(req,res) => {
     const{message,to}=req.body;
-    console.log("credentials are:____" + accountSid +  "-" + authToken + "______");
+    console.log("credentials are:____" + accountSid +  "-" + authToken + "______\n");
+    console.log('\nthe message is:' + message);
+    console.log('\nthe to is:' + to);
     try {
         client.messages
     .create({

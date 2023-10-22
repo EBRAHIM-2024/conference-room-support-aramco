@@ -6,14 +6,14 @@ require('dotenv').config();
 const dotenv= require('dotenv');
 
 const sendSMS=(req,res) => {
-    const{message,to}=req.body;
+    const{body,to}=req.body;
     console.log("credentials are:____" + accountSid +  "-" + authToken + "______\n");
-    console.log('\nthe message is:' + message);
+    console.log('\nthe message is:' + body);
     console.log('\nthe to is:' + to);
     try {
         client.messages
     .create({
-        body: message,
+        body: body,
         from: 'whatsapp:+14155238886',
         to: to,
     })

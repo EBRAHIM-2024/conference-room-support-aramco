@@ -54,4 +54,20 @@ const addTiket=(req, res)=>{
     })
 }
 
-module.exports={getTikets,getTiketByID,addTiket,}
+const deleteTiket=(req, res,next) => {
+    let tiketID=req.params.tiketID;
+    Tiket.findOneAndRemove({_id:tiketID})
+    .then(()=>{
+       res.json({
+        message: 'Tiket Deleted Successfully'
+       })
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.json({
+            message: 'Error Deleting Tiket'
+        })
+    })
+}
+
+module.exports={getTikets,getTiketByID,addTiket,deleteTiket}

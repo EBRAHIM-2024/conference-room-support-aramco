@@ -45,6 +45,8 @@ function SettingsComponent() {
       //  console.log(data.error);
       }else{
        toast.success(data.message)
+       setIsReload(!isReload);
+
 
 
       };
@@ -118,6 +120,7 @@ function SettingsComponent() {
         toast.error(data.error)
       }else{
        toast.success(data.message)
+       setIsReload(!isReload);
       };
      }).catch(err => {
       console.log(err);
@@ -157,74 +160,68 @@ function SettingsComponent() {
     <div className="App">
 
   <main style={{ marginTop: 58 }}>
-       <section className="mb-4">
+       <section className="mb-4" style={{marginRight:10,marginLeft:10}}>
         <div className="card">
           <div className="card-header text-center py-3">
-            <h5 className="mb-0 text-center">
-              <strong>Register Section</strong>
+            <h5 className="mb-0 main-title">
+              <strong >Register Section</strong>
             </h5>
           </div>
-      <section>
+      <section style={{marginRight:10,marginLeft:10, marginTop:10}}>
         <div className="row">
           <div className="col-xl-6 col-sm-6 col-12 mb-4">
-            <div className="card">
+            <div className="card ">
               <div className="card-body">
-                <div className="d-flex justify-content-between px-md-1">
+                <div className="d-flex justify-content-center">
                 <div className="text-end">
-                    <p className="mb-0">Add Bulding</p>
-                  </div>
-                  <div className="align-self-center">
-                    <i className="fas fa-pencil-alt text-info fa-3x" />
+                    <p className="mb-0 text-title">Add Bulding</p>
                   </div>
                 </div>
                 <div  >
-                <MDBCol style={{ marginTop: 10 }}>
+                <MDBCol>
                 <MDBInput wrapperClass='mb-4' value={buildingName} label='Bulding Name'onChange={(e)=>setBuildingName(e.target.value)} id='formControlLg' type='text' size="lg"/>
-               <MDBBtn className="mb-4 w-100" size="lg" onClick={()=>addBuilding()}>Add</MDBBtn>
-              </MDBCol>
+                <button className="mb-4 w-100 button" size="lg" onClick={()=>addBuilding()}>Add</button>
+                </MDBCol>
               </div>
 
               </div>
             </div>
           </div>
-          <div className="col-xl-6 col-sm-6 col-12 mb-4">
+          <div className="col-xl-6 col-sm-6 col-12">
             <div className="card">
               <div className="card-body">
-                <div className="d-flex justify-content-between px-md-1">
+                <div className="d-flex justify-content-center">
                 <div className="text-end">
-                    <p className="mb-0">Add Room</p>
-                  </div>
-                  <div className="align-self-center">
-                  <i className="fas fa-pencil-alt text-info fa-3x" />
+                <p className="mb-0 text-title">Add Room</p>
                   </div>
                 </div>
-                <MDBCol style={{ marginTop: 10 }}>
-                <MDBInput wrapperClass='mb-4' onChange={(e)=>setRoomName(e.target.value)}label='Room Name' id='formControlLg' type='text' size="lg"/>
-                <select  id="select1"className="mb-4 w-100"onChange={(e)=>setBuilding(e.target.value)}>
-               <option className='select' >Select Building</option>
+                <MDBCol>
+                <MDBInput  className="input-group text-groub" wrapperClass='mb-2' onChange={(e)=>setRoomName(e.target.value)}label='Room Name' id='formControlLg' type='text' size="lg"/>
+                <select  id="select1"className="mb-2 w-100 selector text-select"onChange={(e)=>setBuilding(e.target.value)}>
+               <option className='text-select' >Select Building</option>
                   {buildings.map(data=>{
                        return(
                         <option value={data._id}>{data.buildingName}</option>
                        )
                     })}
                  </select>
-               <select  id="select1"className="mb-4 w-100"onChange={(e)=>setEmployee(e.target.value)}>
-               <option className='select' >Select Employee</option>
+               <select  id="select1"className="mb-2 w-100 selector text-select"onChange={(e)=>setEmployee(e.target.value)}>
+               <option className='text-groub' >Select Employee</option>
                   {employees.map(data=>{
                        return(
                         <option value={data._id}>{data.employeeName}</option>
                        )
                     })}
                  </select>
-               <select  id="select1"className="mb-4 w-100"onChange={(e)=>setInspector(e.target.value)}>
-               <option className='select' >Select Isnpector</option>
+               <select  id="select1"className="mb-2 w-100 selector text-select"onChange={(e)=>setInspector(e.target.value)}>
+               <option className='text-groub' >Select Isnpector</option>
                   {isnpectors.map(data=>{
                        return(
                         <option value={data._id}>{data.inspector}</option>
                        )
                     })}
                  </select>
-               <MDBBtn className="mb-4 w-100" size="lg"onClick={()=>addRoom()}>Add</MDBBtn>
+               <button className="mb-4 w-100 button" size="lg"onClick={()=>addRoom()}>Add</button>
               </MDBCol>
 
               </div>
@@ -234,19 +231,16 @@ function SettingsComponent() {
           <div className="col-xl-6 col-sm-6 col-12 mb-4">
             <div className="card">
               <div className="card-body">
-                <div className="d-flex justify-content-between px-md-1">
+                <div className="d-flex justify-content-center">
                 <div className="text-end">
-                    <p className="mb-0">Add Isnpectors</p>
-                  </div>
-                  <div className="align-self-center">
-                  <i className="fas fa-pencil-alt text-info fa-3x" />
+                    <p className="mb-0 text-title">Add Isnpector</p>
                   </div>
                 </div>
-                <MDBCol style={{ marginTop: 10 }}>
-                <MDBInput wrapperClass='mb-4'  onChange={(e)=>setInspector(e.target.value)}label='name' id='formControlLg' type='text' size="lg"/>
-                <MDBInput wrapperClass='mb-4'  onChange={(e)=>setPhoneNumber(e.target.value)}label='phone Number' id='formControlLg' type='text' size="lg"/>
-               <MDBInput wrapperClass='mb-4'   onChange={(e)=>setEmail(e.target.value)}label='email' id='formControlLg' type='email' size="lg"/>
-               <MDBBtn className="mb-4 w-100" size="lg"onClick={()=>addIsnpector()}>Add</MDBBtn>
+                <MDBCol>
+                <MDBInput wrapperClass='mb-2' className='text-groub'  onChange={(e)=>setInspector(e.target.value)}label='Name' id='formControlLg' type='text' size="lg"/>
+                <MDBInput wrapperClass='mb-2' className='text-groub' onChange={(e)=>setPhoneNumber(e.target.value)}label='phone Number' id='formControlLg' type='text' size="lg"/>
+               <MDBInput wrapperClass='mb-2'  className='text-groub' onChange={(e)=>setEmail(e.target.value)}label='Email' id='formControlLg' type='email' size="lg"/>
+               <button className="mb-2 w-100 button" size="lg"onClick={()=>addIsnpector()}>Add</button>
               </MDBCol>
 
               </div>

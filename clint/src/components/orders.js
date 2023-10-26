@@ -1,8 +1,10 @@
+import { toast } from 'materialize-css';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react';
 
 function OrdersComponent() {
-  const [tikets,setTikets]=useState([]);
+   const [tikets,setTikets]=useState([]);
+  const  [isReload, setIsReload]= useState(true);
 
   useEffect(()=>{
     fetch('http://localhost:5000/api/employee/getTikets',{
@@ -13,13 +15,34 @@ function OrdersComponent() {
     .then(result=>{
         console.log(result);
         setTikets(result);
+        setIsReload(!isReload);
         console.log(result);
     })
- },[])
+ },[isReload])
+  const removeTiket= (tiketID)=>{
+        fetch(`http://localhost:5000/api/employee/deleteTiket/${tiketID}/`,{
+            method:"POST",
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(result=>{
+          console.log(result);
+            const newTikets = tikets.filter(item=>{
+                return item._id !== result._id
+
+            })
+            setTikets(newTikets);
+            setIsReload(!isReload);
+            toast.success("Tiket deleted successfully")
+        })
+
+
+    }
   return (
     <div className="App">
        <main style={{ marginTop: 58 }}>
-       <section className="mb-4">
+       <section className="mb-4"style={{marginRight:10,marginLeft:10}}>
         <div className="card">
           <div className="card-header text-center py-3">
             <h5 className="mb-0 text-center">
@@ -41,6 +64,7 @@ function OrdersComponent() {
                     <th scope="col">Converance Room</th>
                     <th scope="col">Problem</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Remove</th>
 
                   </tr>
                 </thead>
@@ -58,6 +82,7 @@ function OrdersComponent() {
                         <td>{data.room}</td>
                         <td>{data.problem}</td>
                         <td>{data.createdAt}</td>
+                        <td><i className="fa-solid fa-trash text-danger icon-c" onClick={()=>removeTiket(data._id)} /></td>
                         </tr>
 
                         )

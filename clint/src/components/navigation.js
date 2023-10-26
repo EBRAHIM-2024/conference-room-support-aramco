@@ -18,7 +18,7 @@ const Navigation = () => {
 
     <nav
       id="sidebarMenu"
-      className="collapse d-lg-block sidebar collapse bg-white"
+      className="collapse d-lg-block sidebar  bg-white"
     >
       <div className="position-sticky">
         <div className="list-group list-group-flush mx-3 mt-4">
@@ -34,10 +34,10 @@ const Navigation = () => {
             <span>Orders</span>
           </Link>
 
-          <Link to="tiket"className="list-group-item list-group-item-action py-2 ripple">
+          {/* <Link to="tiket"className="list-group-item list-group-item-action py-2 ripple">
             <i className="fa-solid fa-ticket me-3" />
             <span>Ticket</span>
-          </Link>
+          </Link> */}
 
 
           <Link to="users"className="list-group-item list-group-item-action py-2 ripple">
@@ -77,13 +77,13 @@ const Navigation = () => {
     {/* Navbar */}
     <nav
       id="main-navbar"
-      className="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+      className="navbar navbar-expand-lg  navbar-light bg-white fixed-top"
     >
       {/* Container wrapper */}
-      <div className="container-fluid">
+      <div className="container-fluid ">
         {/* Toggle button */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler "
           type="button"
           data-mdb-toggle="collapse"
           data-mdb-target="#sidebarMenu"
@@ -92,6 +92,7 @@ const Navigation = () => {
           aria-label="Toggle navigation"
         >
           <i className="fas fa-bars" />
+
         </button>
         {/* Brand */}
         <Link to={state?"/home":"/login"}  className="navbar-brand" >
@@ -105,7 +106,7 @@ const Navigation = () => {
 
 
         {/* Search form */}
-        <form className="d-none d-md-flex input-group w-auto my-auto">
+        <form className="d-none d-md-flex  w-auto my-auto">
           <input
             autoComplete="off"
             type="search"
@@ -131,13 +132,19 @@ const Navigation = () => {
             >
               <i />
               <li>
-                <h5>Welcome:{state?state.employeeName:"loading"}</h5>
+                <h5>Welcome:</h5>
               </li>
 
             </a>
 
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item dropdown nav-link " style={{color:'#2c58a0', fontWeight:'bold'}}>
+              <i />
+              {state?state.employeeName:"loading"}
+
+
+          </li>
+          {/* <li className="nav-item dropdown">
             <a
               className="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
               href="#"
@@ -152,7 +159,7 @@ const Navigation = () => {
               </span>
             </a>
 
-          </li>
+          </li> */}
 
         </ul>
       </div>

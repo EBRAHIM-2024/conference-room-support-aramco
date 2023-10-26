@@ -136,6 +136,7 @@ body {
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
 
+
 .tiket-card{
     display: block;
     margin-left: auto;
@@ -165,4 +166,106 @@ body {
 
 .chart{
   margin: 0 auto;
+}
+
+
+/* ----------------------------- forms*/
+.continer{
+   padding:5px 30px;
+}
+
+.continer-login{
+  margin: 20px;
+   padding:5px 30px;
+   background-color: white;
+   height: 100vh;
+   border-color: #719ECE;
+   box-shadow: 0 0 10px #719ECE;
+   border: 1px solid #595E57;
+   border-radius: 5px;
+}
+
+.login-img{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  padding: 10px;
+}
+.text{
+   font-family:'Times New Roman', Times, serif;
+   color:black !important;
+   font-weight: bold;
+   font-size: 20px;
+}
+.text-groub,label,#dd_1,#dd_2{
+   font-family:'Times New Roman', Times, serif;
+   color:gray !important;
+   font-weight: bold;
+   font-size: 15px;
+}
+.text-title{
+   font-family:'Times New Roman', Times, serif;
+   color:black !important;
+   font-weight: bold;
+   font-size: 15px;
+}
+
+.main-title{
+   font-family:'Times New Roman', Times, serif;
+   color:black !important;
+   font-weight: bold;
+   font-size: 20px;
+}
+.text-select{
+   font-family:'Times New Roman', Times, serif;
+   color:#2c58a0 !important;
+   font-weight: bold;
+   font-size: 15px;
+}
+
+.input-group{
+   background-color: white !important;
+   border-color: #719ECE;
+   box-shadow: 0 0 10px #719ECE;
+   border: 1px solid #595E57;
+   border-radius: 5px;
+
+}
+
+
+.input-2:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+ }
+
+
+.button{
+   color: white;
+   background-color: #2c58a0;
+   font-family:'Times New Roman', Times, serif;
+   font-size: 15px;
+   border: none;
+   box-shadow: 0 0 10px #719ECE;
+   border-radius: 5px;
+}
+
+
+.selector {
+  background-color:  #dfe7f6;
+  /* background-color: #2c58a0; */
+  color: #fff;
+  border: none;
+  border: 1px solid #595E57;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  height:45px;
+  overflow:hidden;
+}
+.selector option{
+padding:5px;
+}
+.selector option:hover{
+  background-color: #1BA1E2 !important;
 }

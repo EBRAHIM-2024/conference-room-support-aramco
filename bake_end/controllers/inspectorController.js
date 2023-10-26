@@ -62,7 +62,8 @@ const updateIsnpector=(req, res,next) => {
     let isnpectorID=req.params.isnpectorID;
     let updatedData={
         inspector:req.body.inspector,
-        room:req.body.room
+        phoneNumber:req.body.room,
+        email:req.body.email
     };
     Isnpector.findByIdAndUpdate({_id:isnpectorID},{$set:updatedData})
     .then(()=>{

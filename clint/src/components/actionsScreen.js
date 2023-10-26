@@ -6,6 +6,8 @@ const ActionScreen=()=>{
     const [buildings,setBuldings]=useState([]);
     const [rooms,setRooms]=useState([]);
     const [tikets,setTikets]=useState([]);
+    const [isReload, setIsReload]= useState(true);
+
 
 
     useEffect(()=>{
@@ -17,9 +19,10 @@ const ActionScreen=()=>{
         .then(result=>{
             console.log(result);
             setBuldings(result);
+            setIsReload(!isReload);
             console.log(result);
         })
-     },[])
+     },[isReload])
      useEffect(()=>{
         fetch('http://localhost:5000/api/employee/getRooms',{
             headers:{
@@ -29,9 +32,10 @@ const ActionScreen=()=>{
         .then(result=>{
             console.log(result);
             setRooms(result);
+            setIsReload(!isReload);
             console.log(result);
         })
-     },[])
+     },[isReload])
      useEffect(()=>{
         fetch('http://localhost:5000/api/employee/getTikets',{
             headers:{
@@ -41,9 +45,10 @@ const ActionScreen=()=>{
         .then(result=>{
             console.log(result);
             setTikets(result);
+            setIsReload(!isReload);
             console.log(result);
         })
-     },[])
+     },[isReload])
    return(
     <section>
         <div className="row">

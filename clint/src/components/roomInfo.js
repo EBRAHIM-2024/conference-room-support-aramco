@@ -44,7 +44,7 @@ function RoomComponent() {
     return (
       <div className="App">
           <main style={{ marginTop: 58 }}>
-         <section className="mb-4">
+         <section className="mb-4"style={{marginRight:10,marginLeft:10}}>
           <div className="card">
             <div className="card-header text-center py-3">
               <h5 className="mb-0 text-center">

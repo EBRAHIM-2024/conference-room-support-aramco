@@ -2,11 +2,13 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import ChartComponent from './chart';
 import ActionScreen from './actionsScreen';
+import { toast } from 'react-toastify';
 
 
 
 function HomeComponent() {
   const [tikets,setTikets]=useState([]);
+  const [isReload, setIsReload]= useState(true);
 
   useEffect(()=>{
     fetch('http://localhost:5000/api/employee/getTikets',{
@@ -19,7 +21,27 @@ function HomeComponent() {
         setTikets(result);
         console.log(result);
     })
- },[])
+ },[isReload])
+  const removeTiket= (tiketID)=>{
+        fetch(`http://localhost:5000/api/employee/deleteTiket/${tiketID}/`,{
+            method:"POST",
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(result=>{
+          console.log(result);
+            const newTikets = tikets.filter(item=>{
+                return item._id !== result._id
+
+            })
+            setTikets(newTikets);
+            setIsReload(!isReload);
+            toast.success("Tiket deleted successfully")
+        })
+
+
+    }
   return (
     <div className="App">
      <main style={{ marginTop: 58 }}>
@@ -67,6 +89,8 @@ function HomeComponent() {
                     <th scope="col">Converance Room</th>
                     <th scope="col">Problem</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Remove</th>
+
 
                   </tr>
                 </thead>
@@ -84,6 +108,8 @@ function HomeComponent() {
                         <td>{data.room}</td>
                         <td>{data.problem}</td>
                         <td>{data.createdAt}</td>
+                        <td><i className="fa-solid fa-trash text-danger icon-c" onClick={()=>removeTiket(data._id)} /></td>
+
                         </tr>
 
                         )

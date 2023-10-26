@@ -14,6 +14,7 @@ import EditEmployee from './components/editEmployee';
 import EditBulding from './components/editBulding';
 import EditRoom from './components/editRoom';
 import InfoComponent from './components/Info';
+import EditIsnpector from './components/editInspector';
 
  export const UserContext=createContext();
 const Routing = ()=>{
@@ -39,6 +40,7 @@ const Routing = ()=>{
           <Route path="/sinUp" element={<Register />} />
           <Route path="/settings" element={<SettingsComponent />} />
           <Route path="/editEmployee/:employeeID" element={<EditEmployee />} />
+          <Route path="/EditIsnpector/:isnpectorID" element={<EditIsnpector />} />
           <Route path="/editBulding/:buildingID" element={<EditBulding />} />
           <Route path="/editRoom/:roomID" element={<EditRoom />} />
           {/* <Route path='/login' element={<LoginComponent/>}/> */}

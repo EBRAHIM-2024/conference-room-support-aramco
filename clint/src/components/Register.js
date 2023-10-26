@@ -53,7 +53,7 @@ const addEmployee =() => {
        <section className="mb-4">
         <div className="card">
           <div className="card-header text-center py-3">
-            <h5 className="mb-0 text-center">
+            <h5 className="mb-0 text-center main-title">
               <strong>Register Users</strong>
             </h5>
           </div>
@@ -61,25 +61,23 @@ const addEmployee =() => {
             <div className="table-responsive">
     <section>
         <div className="row">
-          <div className="col-xl-4 col-sm-6 col-12 mb-4 tiket-card">
+          <div className="col-xl-5 col-sm-6 col-12 mb-4 tiket-card">
             <div className="card">
               <div className="card-body ">
-                <div className="d-flex justify-content-between px-md-1">
+                <div className="d-flex justify-content-center">
                 <div className="text-end">
-                    <p className="mb-0">Register User</p>
+                    <p className="mb-0 text-title">Register User</p>
                   </div>
-                  <div className="align-self-center">
-                    <i className="fa-solid fa-ticket text-primary fa-3x" />
-                  </div>
+
                 </div>
                 <div  >
-                <MDBCol style={{ marginTop: 10 }}>
-                <MDBInput wrapperClass='mb-4' value={employeeName} onChange={(e)=>setEmployeeName(e.target.value)} label='Name' id='formControlLg' type='text' size="lg"/>
-                <MDBInput wrapperClass='mb-4' value={phoneNumber}  onChange={(e)=>setPhoneNumber(e.target.value)} label='Phone Number' id='formControlLg' type='text' size="lg"/>
-                <MDBInput wrapperClass='mb-4' value={jobPosition}  onChange={(e)=>setJobPosition(e.target.value)} label='jobPosition' id='formControlLg' type='text' size="lg"/>
-                <MDBInput wrapperClass='mb-4' value={email}        onChange={(e)=>setEmail(e.target.value)} label='Email address' id='formControlLg' type='email' size="lg"/>
-                <MDBInput wrapperClass='mb-4' value={password}     onChange={(e)=>setPassword(e.target.value)}label='Password' id='formControlLg' type='password' size="lg"/>
-               <MDBBtn className="mb-4 w-100"onClick={()=>addEmployee()} size="lg">Register</MDBBtn>
+                <MDBCol>
+                <MDBInput wrapperClass='mb-4'className='text-groub' value={employeeName} onChange={(e)=>setEmployeeName(e.target.value)} label='Name' id='formControlLg' type='text' size="lg"/>
+                <MDBInput wrapperClass='mb-4'className='text-groub'value={phoneNumber}  onChange={(e)=>setPhoneNumber(e.target.value)} label='Phone Number' id='formControlLg' type='text' size="lg"/>
+                <MDBInput wrapperClass='mb-4'className='text-groub' value={jobPosition}  onChange={(e)=>setJobPosition(e.target.value)} label='JobPosition' id='formControlLg' type='text' size="lg"/>
+                <MDBInput wrapperClass='mb-4'className='text-groub' value={email}        onChange={(e)=>setEmail(e.target.value)} label='Email address' id='formControlLg' type='email' size="lg"/>
+                <MDBInput wrapperClass='mb-4'className='text-groub'value={password}     onChange={(e)=>setPassword(e.target.value)}label='Password' id='formControlLg' type='password' size="lg"/>
+               <button className="mb-4 w-100 button"onClick={()=>addEmployee()} size="lg">Register</button>
               </MDBCol>
               </div>
               </div>

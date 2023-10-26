@@ -9,7 +9,7 @@ function RoomComponent() {
     const [rooms,setRooms]=useState([]);
     const [isReload, setIsReload]= useState(true);
     useEffect(()=>{
-      fetch('http://localhost:5000/api/employee/getRooms',{
+      fetch('https://conference-room-support-app-server.onrender.com/api/employee/getRooms',{
           headers:{
               "Authorization":"Bearer "+localStorage.getItem("jwt")
           }
@@ -21,7 +21,7 @@ function RoomComponent() {
    },[isReload])
 
       const removeRoom= (roomID)=>{
-        fetch(`http://localhost:5000/api/employee/deleteRoom/${roomID}/`,{
+        fetch(`https://conference-room-support-app-server.onrender.com/api/employee/deleteRoom/${roomID}/`,{
             method:"POST",
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")

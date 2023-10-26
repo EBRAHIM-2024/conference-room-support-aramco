@@ -20,7 +20,7 @@ const addEmployee =() => {
     toast.error("Invalid email address");
     return;
   }
-  fetch('http://localhost:5000/api/employee/addEmployee',{
+  fetch('https://conference-room-support-app-server.onrender.com/api/employee/addEmployee',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

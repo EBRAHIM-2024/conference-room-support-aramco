@@ -13,7 +13,7 @@ function EditBulding(props) {
 
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/employee/getBuldingByID/${buildingID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/getBuldingByID/${buildingID}/`,{
       method:"POST",
       headers:{
           Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -29,7 +29,7 @@ function EditBulding(props) {
  },[])
   const updateBulding=(e)=>{
     //  e.prefentDufult();
-    fetch(`http://localhost:5000/api/employee/updateBuilding/${buildingID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/updateBuilding/${buildingID}/`,{
       method:"POST",
       headers:{
          'Content-Type': 'application/json',

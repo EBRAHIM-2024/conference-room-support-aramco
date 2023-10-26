@@ -14,7 +14,7 @@ function EditEmployee(props) {
   const [jobPosition,setJobPosition]=useState();
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/employee/getEmployeeById/${employeeID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/getEmployeeById/${employeeID}/`,{
       method:"POST",
       headers:{
           Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -32,7 +32,7 @@ function EditEmployee(props) {
  },[])
   const updateEmployee=(e)=>{
     //  e.prefentDufult();
-    fetch(`http://localhost:5000/api/employee/updateEmployee/${employeeID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/updateEmployee/${employeeID}/`,{
       method:"POST",
       headers:{
          'Content-Type': 'application/json',

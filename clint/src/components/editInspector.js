@@ -13,7 +13,7 @@ function EditIsnpector(props) {
   const [email,setEmail]=useState();
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/employee/getIsnpectorByID/${isnpectorID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/getIsnpectorByID/${isnpectorID}/`,{
       method:"POST",
       headers:{
           Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -29,7 +29,7 @@ function EditIsnpector(props) {
  },[])
   const updateInspector=(e)=>{
     //  e.prefentDufult();
-    fetch(`http://localhost:5000/api/employee/updateIsnpector/${isnpectorID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/updateIsnpector/${isnpectorID}/`,{
       method:"POST",
       headers:{
          'Content-Type': 'application/json',

@@ -27,7 +27,7 @@ function SettingsComponent() {
       toast.error("Invalid email address")
       return;
     }
-    fetch('http://localhost:5000/api/employee/addIsnpector',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/addIsnpector',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function SettingsComponent() {
 
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getIsnpectors',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getIsnpectors',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -70,7 +70,7 @@ function SettingsComponent() {
  },[isReload])
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getEmployees',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getEmployees',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -82,7 +82,7 @@ function SettingsComponent() {
  },[isReload])
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getBuldings',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getBuldings',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -93,7 +93,7 @@ function SettingsComponent() {
     })
  },[isReload])
  useEffect(()=>{
-  fetch('http://localhost:5000/api/employee/getRooms',{
+  fetch('https://conference-room-support-app-server.onrender.com/api/employee/getRooms',{
       headers:{
           "Authorization":"Bearer "+localStorage.getItem("jwt")
       }
@@ -105,7 +105,7 @@ function SettingsComponent() {
 },[isReload])
 
   const addBuilding =() => {
-    fetch('http://localhost:5000/api/employee/addBuilding',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/addBuilding',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ function SettingsComponent() {
 
 
   const addRoom=() => {
-    fetch('http://localhost:5000/api/employee/addRoom',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/addRoom',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -53,7 +53,7 @@ function TicketComponent() {
 
 
  useEffect(()=>{
-   fetch(`http://localhost:5000/api/employee/getRoomByID/${roomID}/`,{
+   fetch(`https://conference-room-support-app-server.onrender.com/api/employee/getRoomByID/${roomID}/`,{
      method:"POST",
      headers:{
          Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -80,7 +80,7 @@ function TicketComponent() {
       toast.error("Invalid email address")
       return;
     }
-    fetch('http://localhost:5000/api/employee/addTiket',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/addTiket',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ function TicketComponent() {
       console.log(err);
      });
 
-      fetch('http://localhost:5000/api/employee/sendSMS',{
+      fetch('https://conference-room-support-app-server.onrender.com/api/employee/sendSMS',{
         method: 'POST',
          headers: {
         'Content-Type': 'application/json'

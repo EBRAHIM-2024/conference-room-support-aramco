@@ -13,7 +13,7 @@ function EditRoom(props) {
 
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/employee/getRoomByID/${roomID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/getRoomByID/${roomID}/`,{
       method:"POST",
       headers:{
           Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -29,7 +29,7 @@ function EditRoom(props) {
  },[])
   const updateRoom=(e)=>{
     //  e.prefentDufult();
-    fetch(`http://localhost:5000/api/employee/updateRoom/${roomID}/`,{
+    fetch(`https://conference-room-support-app-server.onrender.com/api/employee/updateRoom/${roomID}/`,{
       method:"POST",
       headers:{
          'Content-Type': 'application/json',

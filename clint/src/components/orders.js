@@ -7,7 +7,7 @@ function OrdersComponent() {
   const  [isReload, setIsReload]= useState(true);
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getTikets',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getTikets',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -20,7 +20,7 @@ function OrdersComponent() {
     })
  },[isReload])
   const removeTiket= (tiketID)=>{
-        fetch(`http://localhost:5000/api/employee/deleteTiket/${tiketID}/`,{
+        fetch(`https://conference-room-support-app-server.onrender.com/api/employee/deleteTiket/${tiketID}/`,{
             method:"POST",
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")

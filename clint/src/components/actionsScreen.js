@@ -11,7 +11,7 @@ const ActionScreen=()=>{
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/api/employee/getBuldings',{
+        fetch('https://conference-room-support-app-server.onrender.com/api/employee/getBuldings',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -24,7 +24,7 @@ const ActionScreen=()=>{
         })
      },[isReload])
      useEffect(()=>{
-        fetch('http://localhost:5000/api/employee/getRooms',{
+        fetch('https://conference-room-support-app-server.onrender.com/api/employee/getRooms',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -37,7 +37,7 @@ const ActionScreen=()=>{
         })
      },[isReload])
      useEffect(()=>{
-        fetch('http://localhost:5000/api/employee/getTikets',{
+        fetch('https://conference-room-support-app-server.onrender.com/api/employee/getTikets',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }

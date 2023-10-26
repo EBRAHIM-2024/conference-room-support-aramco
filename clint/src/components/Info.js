@@ -6,7 +6,7 @@ import RoomComponent from './roomInfo';
 
 function InfoComponent() {
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getBuldings',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getBuldings',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }

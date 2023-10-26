@@ -11,7 +11,7 @@ function UsersComponent() {
 
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getEmployees',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getEmployees',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -24,7 +24,7 @@ function UsersComponent() {
  },[isReload])
 
   useEffect(()=>{
-    fetch('http://localhost:5000/api/employee/getIsnpectors',{
+    fetch('https://conference-room-support-app-server.onrender.com/api/employee/getIsnpectors',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -37,7 +37,7 @@ function UsersComponent() {
 
 
     const remove = (employeeID)=>{
-      fetch(`http://localhost:5000/api/employee/deletEmployee/${employeeID}/`,{
+      fetch(`https://conference-room-support-app-server.onrender.com/api/employee/deletEmployee/${employeeID}/`,{
           method:"POST",
           headers:{
               Authorization:"Bearer "+localStorage.getItem("jwt")
@@ -54,7 +54,7 @@ function UsersComponent() {
       })
   }
   const removeIns = (isnpectorID)=>{
-      fetch(`http://localhost:5000/api/employee/deleteIsnpector/${isnpectorID}/`,{
+      fetch(`https://conference-room-support-app-server.onrender.com/api/employee/deleteIsnpector/${isnpectorID}/`,{
           method:"POST",
           headers:{
               Authorization:"Bearer "+localStorage.getItem("jwt")

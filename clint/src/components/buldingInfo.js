@@ -11,7 +11,7 @@ function BuldingComponent() {
 
 
     useEffect(()=>{
-      fetch('http://localhost:5000/api/employee/getBuldings',{
+      fetch('https://conference-room-support-app-server.onrender.com/api/employee/getBuldings',{
           headers:{
               "Authorization":"Bearer "+localStorage.getItem("jwt")
           }
@@ -24,7 +24,7 @@ function BuldingComponent() {
    },[isReload])
 
       const removeBulding = (buildingID)=>{
-        fetch(`http://localhost:5000/api/employee/deleteBuilding/${buildingID}/`,{
+        fetch(`https://conference-room-support-app-server.onrender.com/api/employee/deleteBuilding/${buildingID}/`,{
             method:"POST",
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")
